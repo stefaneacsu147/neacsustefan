@@ -122,7 +122,7 @@ code {
 }
 
 .darkmode--activated body, .info, .code {
-  font-weight: 600
+  font-weight: bolder;
 }
 
 @media screen and (max-width:39.9375em) {
