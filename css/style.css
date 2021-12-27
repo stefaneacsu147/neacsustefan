@@ -121,7 +121,7 @@ code {
   margin-top: .5rem
 }
 
-.darkmode--activated body, .info {
+.darkmode--activated body, .info, .code {
   font-weight: 600
 }
 
