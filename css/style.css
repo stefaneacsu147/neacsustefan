@@ -121,8 +121,8 @@ code {
   margin-top: .5rem
 }
 
-.darkmode--activated code {
-  color: #fafafa;
+.darkmode--activated body, .info {
+  font-weight: 600
 }
 
 @media screen and (max-width:39.9375em) {
