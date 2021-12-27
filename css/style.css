@@ -121,6 +121,10 @@ code {
   margin-top: .5rem
 }
 
+.darkmode--activated code {
+  color: ##fafafa;
+}
+
 @media screen and (max-width:39.9375em) {
   .mt-small__small-only {
     margin-top: .5rem !important
