@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 @media print,
 screen and (min-width:40em) {
   .reveal,
@@ -121,7 +120,9 @@ code {
   margin-top: .5rem
 }
 
-.darkmode--activated body, .info, .code {
+html.theme-dark body,
+html.theme-dark .info,
+html.theme-dark .code {
   font-weight: bolder;
 }
 
@@ -1650,6 +1651,135 @@ code {
   margin-right: 1rem
 }
 
+.social-links__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  padding: 0.5rem 0.75rem;
+  background: var(--paper-bg);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+.theme-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 9999px !important;
+  overflow: hidden;
+  clip-path: circle(50%);
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  background: rgba(252, 252, 252, 0.92);
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+  z-index: 9999;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.theme-toggle__icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+}
+
+.theme-toggle i {
+  color: #f6c343;
+  text-shadow: none;
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14), 0 0 0 3px rgba(246, 195, 67, 0.35);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .theme-toggle {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+html.theme-dark .theme-toggle {
+  border-color: var(--rule);
+  background: rgba(14, 13, 11, 0.82);
+  color: var(--ink);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer: integrate with the paper/ink system */
+footer.bg-light-gray {
+  background-color: var(--paper-bg) !important;
+  border-top: 1px solid var(--rule);
+}
+
+footer.bg-light-gray h5 {
+  color: var(--muted-ink);
+}
+
+footer.bg-light-gray h5 strong {
+  color: var(--ink);
+}
+
+html.theme-dark .theme-toggle:focus-visible {
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(246, 195, 67, 0.35);
+}
+
 .section-button {
   width: 7.5rem;
   height: 7.5rem;
@@ -1695,7 +1825,8 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100% -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 article,
@@ -1833,7 +1964,8 @@ select {
 [type=submit],
 button,
 html [type=button] {
-  -webkit-appearance: button
+  -webkit-appearance: button;
+  appearance: button
 }
 
 [type=button]::-moz-focus-inner,
@@ -1869,6 +2001,7 @@ input {
 
 [type=search] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px
 }
 
@@ -2336,7 +2469,6 @@ screen and (min-width:40em) {
 .grid-margin-x>.auto,
 .grid-margin-x>.shrink {
   width: auto;
-  s
 }
 
 .grid-margin-x>.small-1 {
@@ -4550,6 +4682,7 @@ screen and (min-width:64em) {
   font-family: inherit;
   padding: 1em 1.375rem;
   -webkit-appearance: none;
+  appearance: none;
   border: 1px solid transparent;
   border-radius: .25rem;
   -webkit-transition: background-color .25s ease-out, color .25s ease-out;
@@ -6026,7 +6159,6 @@ screen and (min-width:64em) {
 }
 
 .drilldown .js-drilldown-back>a:before {
-  display: block;
   display: inline-block;
   vertical-align: middle;
   margin-right: .75rem
@@ -10057,4 +10189,178 @@ svg:not(:root).svg-inline--fa {
   overflow: visible;
   position: static;
   width: auto
+}
+
+/* Section separators */
+section {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* Dark mode section separators */
+html.theme-dark section {
+  border-bottom-color: var(--rule) !important;
+}
+
+/* Newspaper-style typography (scoped + minimal layout impact) */
+:root {
+  --paper-bg: #fcfcfc;
+  --ink: #161616;
+  --muted-ink: #4a4a4a;
+  --rule: #d7d1c6;
+  --accent-rule: #2b2b2b;
+}
+
+body {
+  background: var(--paper-bg);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
+  line-height: 1.7;
+}
+
+/* Keep code/labels mono */
+code,
+.font-weight-normal,
+.info {
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+/* Slightly narrower reading measure */
+main .cell.medium-9 {
+  max-width: 44rem;
+}
+
+main .cell.medium-9 p {
+  font-size: 1.06rem;
+  color: var(--ink);
+}
+
+/* Headline feel */
+header h1.no-margin {
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 2.6rem;
+}
+
+/* Section headers as newspaper rubrics */
+section .cell.medium-3 h2 {
+  font-family: 'Roboto Mono', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: var(--muted-ink);
+  border-bottom: 2px solid var(--accent-rule);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Experience blocks: subtle top rules + stronger company name */
+#experiences .pb-normal {
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 1.35rem;
+}
+
+#experiences .pb-normal:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#experiences h3.no-margin {
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 1.45rem !important;
+  color: var(--ink);
+}
+
+#experiences h4 {
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: 0.9rem !important;
+  color: var(--muted-ink) !important;
+  margin-bottom: 0.9rem;
+}
+
+#experiences .experience-list {
+  margin: 0.35rem 0 1.1rem;
+  padding-left: 1.15rem;
+  color: var(--ink);
+}
+
+#experiences .experience-list li {
+  margin: 0.35rem 0;
+}
+
+/* Stack chips: more “print label” than “pill” */
+code.highlighter-rouge {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  margin: 0.25rem 0.35rem 0.25rem 0;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+/* Optional: subtle drop cap only for the first About paragraph */
+#about .cell.medium-9 p:first-of-type::first-letter {
+  float: left;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 1;
+  padding: 0.1rem 0.3rem 0 0;
+}
+
+/* Dark mode: keep contrast + keep the “paper” feel without going pure black */
+html.theme-dark {
+  --paper-bg: #0e0d0b;
+  --ink: #f1f0ee;
+  --muted-ink: #c8c4bd;
+  --rule: #2f2c27;
+  --accent-rule: #e7e2d8;
+}
+
+html.theme-dark body {
+  background: var(--paper-bg) !important;
+  color: var(--ink) !important;
+}
+
+/* Dark mode fixes for legacy utility classes */
+html.theme-dark .c-darker-gray {
+  color: var(--muted-ink) !important;
+}
+
+html.theme-dark .bg-light-gray {
+  background-color: var(--paper-bg) !important;
+}
+
+html.theme-dark a {
+  color: var(--ink) !important;
+}
+
+html.theme-dark main .cell.medium-9 p,
+html.theme-dark #experiences h3.no-margin {
+  color: var(--ink) !important;
+}
+
+html.theme-dark section .cell.medium-3 h2 {
+  color: var(--muted-ink) !important;
+  border-bottom-color: var(--accent-rule) !important;
+}
+
+html.theme-dark #experiences .pb-normal {
+  border-top-color: var(--rule) !important;
+}
+
+html.theme-dark code.highlighter-rouge {
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
 }
