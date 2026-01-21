@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" class="gr__propine_me fontawesome-i2svg-active fontawesome-i2svg-complete">
+<html lang="en">
 
-<head lang="en">
+<head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117348922-1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
-    function addDarkmodeWidget() {
-      const options = {
-        bottom: '32px', // default: '32px'
-        right: '32px', // default: '32px'
-        left: 'unset', // default: 'unset'
-        time: '0.5s', // default: '0.3s'
-        mixColor: '#fff', // default: '#fff'
-        backgroundColor: '#fff',  // default: '#fff'
-        buttonColorDark: '#100f2c',  // default: '#100f2c'
-        buttonColorLight: '#fff', // default: '#fff'
-        saveInCookies: true, // default: true,
-        label: '🌓', // default: ''
-        autoMatchOsTheme: true // default: true
-      }
+    (function () {
+      try {
+        const stored = localStorage.getItem('theme');
+        const media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        const prefersDark = media ? media.matches : false;
+        const mode = stored === 'dark' || stored === 'light' || stored === 'auto' ? stored : 'auto';
+        const isDark = mode === 'dark' ? true : mode === 'light' ? false : prefersDark;
 
-      const darkmode = new Darkmode(options);
-      darkmode.showWidget();
-    }
-    window.addEventListener('load', addDarkmodeWidget);
+        document.documentElement.classList.toggle('theme-dark', isDark);
+
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) themeMeta.setAttribute('content', isDark ? '#0e0d0b' : '#fcfcfc');
+      } catch (e) {
+        // no-op
+      }
+    })();
   </script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,25 +29,44 @@
 
     gtag('config', 'UA-117348922-1');
   </script>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <meta name="theme-color" content="#212529">
+  <meta name="theme-color" content="#fcfcfc">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="assets/favicon.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <title>Neacsu Stefan</title>
+  <title>Neacsu Stefan - Lead Cloud Engineer</title>
+  <link rel="canonical" href="https://www.neacsustefan.com/">
   <link href="css/style.css" rel="stylesheet">
-  <meta property="og:title" content="Neacsu Stefan">
-  <meta property="og:description" content="Senior Cloud Engineer">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Neacsu Stefan - Lead Cloud Engineer">
+  <meta property="og:description" content="Lead Cloud Engineer working with Terraform, Kubernetes, and cloud infrastructure">
+  <meta property="og:image" content="https://www.neacsustefan.com/assets/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.neacsustefan.com/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Neacsu Stefan - Lead Cloud Engineer">
+  <meta name="twitter:description" content="Lead Cloud Engineer working with Terraform, Kubernetes, and cloud infrastructure">
+  <meta name="twitter:image" content="https://www.neacsustefan.com/assets/favicon.png">
   <meta name="description"
-    content="Senior Cloud Engineer Neacsu Stefan working with Terraform, Kubernetes and Open Source tools"
+    content="Lead Cloud Engineer working with Terraform, Kubernetes, and cloud infrastructure"
     data-react-helmet="true">
 </head>
 
-<body data-gr-c-s-loaded="true">
+<body>
   <div id="root">
+    <a class="skip-link" href="#about">Skip to content</a>
+    <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+      <span class="theme-toggle__icon" aria-hidden="true">
+        <i class="fa fa-sun-o" aria-hidden="true"></i>
+      </span>
+    </button>
     <header class="grid-container">
       <div class="grid-x mt-large mt-normal__small-only">
         <div class="cell medium-6 flex-container__small-only flex-dir-column__small-only">
@@ -60,42 +75,117 @@
         </div>
         <div class="cell medium-6 flex-container align-right align-middle justify-left__small-only">
           <div class="social-links">
-            <a target="_blank" rel="noreferrer" href="https://github.com/stefaneacsu147" class="social-links__link">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/stefaneacsu147" class="social-links__link" aria-label="GitHub Profile">
               <i class="fa fa-github"></i>
             </a>
-            <a target="_blank" rel="noreferrer" href="https://linkedin.com/in/neacsustefan" class="social-links__link">
+            <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/neacsustefan" class="social-links__link" aria-label="LinkedIn Profile">
               <i class="fa fa-linkedin"></i>
             </a>
-            <a target="_blank" rel="noreferrer" href="https://stackoverflow.com/users/12391391/stefan-neacsu"
-              class="social-links__link">
+            <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/12391391/stefan-neacsu"
+              class="social-links__link" aria-label="Stack Overflow Profile">
               <i class="fa fa-stack-overflow"></i>
             </a>
-            <a target="_blank" rel="noreferrer" href="https://medium.com/@Forsaken147" class="social-links__link">
+            <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@Forsaken147" class="social-links__link" aria-label="Medium Blog">
               <i class="fa fa-medium"></i>
             </a>
           </div>
         </div>
       </div>
     </header>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const root = document.documentElement;
+        const button = document.querySelector('.theme-toggle');
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        const media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        if (!button) return;
+
+        let mode = (function () {
+          try {
+            const stored = localStorage.getItem('theme');
+            return stored === 'dark' || stored === 'light' || stored === 'auto' ? stored : 'auto';
+          } catch (e) {
+            return 'auto';
+          }
+        })();
+
+        function isDark() {
+          return root.classList.contains('theme-dark');
+        }
+
+        function appliedIsDark() {
+          if (mode === 'dark') return true;
+          if (mode === 'light') return false;
+          return media ? media.matches : false;
+        }
+
+        function applyMode(nextMode, persist) {
+          mode = nextMode;
+          const dark = appliedIsDark();
+          root.classList.toggle('theme-dark', dark);
+          if (themeMeta) themeMeta.setAttribute('content', dark ? '#0e0d0b' : '#fcfcfc');
+          if (persist) {
+            try {
+              localStorage.setItem('theme', mode);
+            } catch (e) {
+              // no-op
+            }
+          }
+          setButtonState();
+        }
+
+        function setButtonState() {
+          const dark = appliedIsDark();
+          button.setAttribute('aria-pressed', String(dark));
+
+          const title =
+            mode === 'auto'
+              ? 'Theme: Auto (follows OS)'
+              : mode === 'dark'
+                ? 'Theme: Dark'
+                : 'Theme: Light';
+          button.setAttribute('title', title);
+          button.setAttribute('aria-label', title);
+
+          const icon = button.querySelector('i');
+          if (icon) icon.className = dark ? 'fa fa-moon-o' : 'fa fa-sun-o';
+        }
+
+        button.addEventListener('click', function () {
+          const next = mode === 'auto' ? 'light' : mode === 'light' ? 'dark' : 'auto';
+          applyMode(next, true);
+        });
+
+        if (media) {
+          const onChange = function () {
+            if (mode === 'auto') applyMode('auto', false);
+          };
+          if (typeof media.addEventListener === 'function') {
+            media.addEventListener('change', onChange);
+          } else if (typeof media.addListener === 'function') {
+            media.addListener(onChange);
+          }
+        }
+
+        applyMode(mode, false);
+      });
+    </script>
     <main>
-      <section class="grid-container">
+      <section class="grid-container" id="about">
         <div class="grid-x pt-huge pb-big pt-big__small-only pb-normal__small-only">
           <div class="cell medium-3">
             <h2>About me</h2>
           </div>
-          <div class="cell medium-9" <p>
-            <b>Senior Cloud Engineer</b> with extensive experience in designing, building, and managing cloud-based infrastructure across AWS, Azure, and GCP.
-          <br>
-          
-          <br />
-Proficient in Terraform, Helm, Ansible, and Kubernetes, with a strong focus on architecting highly available, scalable systems. Skilled in implementing CI/CD pipelines, optimizing cloud resources for cost-efficiency, and enhancing system performance through proactive monitoring and automation.
-          <br />
-          
-          <br>
-          At the moment, I work as a <strong><i>Senior Cloud Engineer</i></strong> at <strong>Salt Bank</strong> where we are building the first fully digital bank made in Romania. Feel free to contact me, you can drop me an email at <b>stefaneacsu@gmail.com</b> or you can access my <a href=https://drive.google.com/file/d/1q-492w5qhZ5XyDWJPQ-cNJLnBRkPqSWe/view?usp=sharing"><strong>resume.</strong>
-            </a>
-            <br />
-            <br />
+          <div class="cell medium-9">
+            <p>
+              <strong>Lead Cloud Engineer</strong> with extensive experience in designing, building, and managing cloud-based infrastructure across AWS, Azure, and GCP.
+            </p>
+            <p>
+              Proficient in Terraform, Helm, Ansible, and Kubernetes, with a strong focus on architecting highly available, scalable systems. Skilled in implementing CI/CD pipelines, optimizing cloud resources for cost-efficiency, and enhancing system performance through proactive monitoring and automation.
+            </p>
+            <p>
+              At the moment, I work as a <strong><em>Lead Cloud Engineer</em></strong> at <strong>Salt Bank</strong> where we are building the first fully digital bank made in Romania. Feel free to contact me, you can drop me an email at <a href="mailto:stefaneacsu@gmail.com"><strong>stefaneacsu@gmail.com</strong></a> or you can access my <a href="https://drive.google.com/file/d/1q-492w5qhZ5XyDWJPQ-cNJLnBRkPqSWe/view?usp=sharing" target="_blank" rel="noopener noreferrer"><strong>resume</strong></a>.
+            </p>
             <h4 id="languages-and-softwares">Stack used at the moment:</h4>
             <p>
               <code class="highlighter-rouge">Google Cloud</code>
@@ -116,14 +206,13 @@ Proficient in Terraform, Helm, Ansible, and Kubernetes, with a strong focus on a
             <p>
               <code class="highlighter-rouge">Grafana</code>
               <code class="highlighter-rouge">Git</code>
-              <code class="highlighter-rouge">Python</code>
               <code class="highlighter-rouge">Splunk</code>
             </p>
 
           </div>
         </div>
       </section>
-      <section class="grid-container">
+      <section class="grid-container" id="experiences">
         <div class="grid-x pt-big pb-big pt-normal__small-only pb-normal__small-only">
           <div class="cell medium-3">
             <h2>Experiences</h2>
@@ -131,189 +220,111 @@ Proficient in Terraform, Helm, Ansible, and Kubernetes, with a strong focus on a
           <div class="cell medium-9">
             <div class="pb-normal">
               <h3 class="no-margin">Salt Bank</h3>
-              <h4 class="c-darker-gray font-weight-normal"><strong> Senior Cloud Engineer, September 2023 - Present</strong>
-              </h4>
-              <p>
-                <span>
-                  <strong>Activities included:</strong>
-                  <br />
-                  As a Senior Cloud Engineer specializing in AWS and Terraform, I design and build cloud infrastructure for a mobile banking application, ensuring scalability, security, and compliance.
-                  <br />
-            
-                  <br>
-            Leveraging AWS services and infrastructure as code (IaC) with Terraform, I create robust, efficient, and consistent environments while adhering to best security practices.
-                  <br />
-            
-                  <br>
-I optimize performance by utilizing AWS-managed services and continuously refine the architecture for high availability and seamless user experiences. Beyond deployment, I play a strategic role in recommending innovative solutions to enhance efficiency and scalability, ensuring a resilient, secure, and high-performing cloud ecosystem tailored to modern banking demands.
-                  <br />
-          
-                  <br />
-                  <b>Skills:</b> Terraform · Amazon Web Services (AWS) · Helm · Scripting · GitHub · Kubernetes · CI/CD · Azure
-                  <br>
+
+              <h4 class="c-darker-gray font-weight-normal"><strong>Lead Cloud Engineer, March 2025 - Present</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li><strong>Leading the cloud infrastructure team</strong> and making technical decisions for <strong>AWS-based banking infrastructure</strong>. Mentoring engineers and establishing best practices for <strong>Terraform</strong>, <strong>Kubernetes</strong>, and security.</li>
+                <li>Managing the design and implementation of production infrastructure, focusing on <strong>high availability</strong>, <strong>disaster recovery</strong>, and <strong>regulatory compliance</strong>. Working with teams across the organization to optimize cloud costs and improve system reliability.</li>
+              </ul>
+              <p><strong>Skills:</strong> Terraform · Amazon Web Services (AWS) · Helm · Kubernetes · CI/CD · Azure · Team Leadership · Cloud Architecture</p>
+
+              <h4 class="c-darker-gray font-weight-normal"><strong>Senior Cloud Engineer, September 2023 - March 2025</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>As a Senior Cloud Engineer specializing in <strong>AWS</strong> and <strong>Terraform</strong>, I design and build cloud infrastructure for a mobile banking application, ensuring <strong>scalability</strong>, <strong>security</strong>, and <strong>compliance</strong>.</li>
+                <li>Leveraging AWS services and <strong>infrastructure as code (IaC)</strong> with Terraform, I create robust, efficient, and consistent environments while adhering to best security practices.</li>
+                <li>I optimize performance by utilizing AWS-managed services and continuously refine the architecture for high availability and seamless user experiences. Beyond deployment, I play a strategic role in recommending innovative solutions to enhance efficiency and scalability, ensuring a resilient, secure, and high-performing cloud ecosystem tailored to modern banking demands.</li>
+              </ul>
+              <p><strong>Skills:</strong> Terraform · Amazon Web Services (AWS) · Helm · Scripting · GitHub · Kubernetes · CI/CD · Azure</p>
             </div>
-          <div class="cell medium-9">
+
             <div class="pb-normal">
               <h3 class="no-margin">Deloitte Digital Romania</h3>
-              <h4 class="c-darker-gray font-weight-normal"><strong> Senior DevOps Engineer, October 2022 - September 2023</strong>
-              </h4>
-              <p>
-                <span>
-                  <strong>Activities included:</strong>
-                  <br />
-                  I am responsible for designing, building, and maintaining the software development and deployment pipelines for the organization. On a daily basis, I work closely with development teams to identify requirements and create pipelines that optimize application delivery and deployment. 
-                  <br />
-            
-                  <br>
-            This includes setting up and <i>configuring cloud environments and infrastructure</i> using tools like <b>Pulumi</b>, <b>Terraform</b>, <b>Kubernetes</b>, and <b>Helm Charts</b>, as well as creating automation scripts using tools like <b>Ansible</b> to streamline the deployment process.
-                  <br />
-            
-                  <br>
-  In addition to my technical responsibilities, I play a <b>leadership role</b> in managing and mentoring junior DevOps engineers, providing guidance on best practices and technical solutions. I also work closely with cross-functional teams, including QA, security, and operations, to ensure that the DevOps processes support the needs of the business and address security and compliance concerns.
-                  <br />
-            
-                  <br>
-  As a <b>Senior DevOps Engineer</b>, I stay up-to-date with the latest DevOps technologies and tools and continuously look for ways to optimize pipelines to improve application performance and user experience. This includes <b>building and deploying CI/CD pipelines</b>, managing and monitoring cloud infrastructure and applications using <b>Gitlab</b>, <b>AWS</b>, <b>GCP</b>, and other relevant tools. I also collaborate with the team to troubleshoot and resolve any issues that arise.
-                  <br />
-                  <br />
-                  <b>Skills:</b> Pulumi · Amazon Web Services (AWS) · Helm Charts · Ansible · Gitlab · Google Cloud Platform (GCP) · Terraform · Kubernetes
-                  <br>
+              <h4 class="c-darker-gray font-weight-normal"><strong>Senior DevOps Engineer, October 2022 - September 2023</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>I am responsible for designing, building, and maintaining the software development and deployment pipelines for the organization. On a daily basis, I work closely with development teams to identify requirements and create pipelines that optimize application delivery and deployment.</li>
+                <li>This includes setting up and <em>configuring cloud environments and infrastructure</em> using tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, <strong>Kubernetes</strong>, and <strong>Helm Charts</strong>, as well as creating automation scripts using tools like <strong>Ansible</strong> to streamline the deployment process.</li>
+                <li>In addition to my technical responsibilities, I play a <strong>leadership role</strong> in managing and mentoring junior DevOps engineers, providing guidance on best practices and technical solutions. I also work closely with cross-functional teams, including QA, security, and operations, to ensure that the DevOps processes support the needs of the business and address security and compliance concerns.</li>
+                <li>As a <strong>Senior DevOps Engineer</strong>, I stay up-to-date with the latest DevOps technologies and tools and continuously look for ways to optimize pipelines to improve application performance and user experience. This includes <strong>building and deploying CI/CD pipelines</strong>, managing and monitoring cloud infrastructure and applications using <strong>Gitlab</strong>, <strong>AWS</strong>, <strong>GCP</strong>, and other relevant tools. I also collaborate with the team to troubleshoot and resolve any issues that arise.</li>
+              </ul>
+              <p><strong>Skills:</strong> Pulumi · Amazon Web Services (AWS) · Helm Charts · Ansible · Gitlab · Google Cloud Platform (GCP) · Terraform · Kubernetes</p>
             </div>
-          <div class="cell medium-9">
+
             <div class="pb-normal">
               <h3 class="no-margin">Devoteam G Cloud Netherlands</h3>
-              <h4 class="c-darker-gray font-weight-normal"><strong> Senior Cloud Engineer, May 2022 - September 2022</strong>
-              </h4>
-              <p>
-                <span>
-                  <strong>Activities included:</strong>
-                  <br>
-                  I am responsible for leading the design, development, and management of cloud-based solutions that support the organization's business needs.
-                  <br />
-            
-                  <br>
-            On a daily basis, I work closely with other cloud infrastructure and software development teams to identify requirements and develop strategies for implementing efficient and scalable cloud infrastructure. 
-                  <br />
-                   
-                  <br>
-            This includes designing and building cloud infrastructure using tools like <b>Pulumi</b>, <b>Terraform</b>, <b>Kubernetes</b>, and <b>Helm Charts</b>, as well as creating automation scripts using tools like <b>Ansible</b> to streamline the deployment process.
-                  <br />
-            
-                  <br>
-  In addition to my technical responsibilities, I also <b>play a leadership role</b> in managing and mentoring junior engineers, providing guidance on best practices and technical solutions.
-                  <br />
-            
-                  <br>
-            I work closely with cross-functional teams to ensure that cloud infrastructure supports the needs of the business and addresses security and compliance concerns.engineers.
-                  <br />
 
+              <h4 class="c-darker-gray font-weight-normal"><strong>Senior Cloud Engineer, May 2022 - September 2022</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>I am responsible for leading the design, development, and management of cloud-based solutions that support the organization's business needs.</li>
+                <li>On a daily basis, I work closely with other cloud infrastructure and software development teams to identify requirements and develop strategies for implementing efficient and scalable cloud infrastructure.</li>
+                <li>This includes designing and building cloud infrastructure using tools like <strong>Pulumi</strong>, <strong>Terraform</strong>, <strong>Kubernetes</strong>, and <strong>Helm Charts</strong>, as well as creating automation scripts using tools like <strong>Ansible</strong> to streamline the deployment process.</li>
+                <li>In addition to my technical responsibilities, I also <strong>play a leadership role</strong> in managing and mentoring junior engineers, providing guidance on best practices and technical solutions.</li>
+                <li>I work closely with cross-functional teams to ensure that cloud infrastructure supports the needs of the business and addresses security and compliance concerns.</li>
+              </ul>
+
+              <h4 class="c-darker-gray font-weight-normal"><strong>Cloud Engineer, September 2021 - May 2022</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>My primary responsibility is to oversee the process of migrating, maintaining, and creating a new process for customers that want to move to the Cloud and become digital natives.</li>
+                <li>On a daily basis, I work closely with the team to assemble the cloud infrastructure, cloud environment, and security services for the customers, guiding them to choose the right services for their needs. This involves collaborating with customers and other stakeholders to understand their needs and design a cloud solution that meets their requirements.</li>
+                <li>I use Terraform to create infrastructure as code for a plethora of projects and help our customers ramp up on building everything to become cloud-native. This includes building and deploying <strong>CI/CD pipelines</strong>, implementing cloud security solutions, and automating day-to-day DevOps operations as necessary.</li>
+              </ul>
             </div>
-            <div class="cell medium-9">
-              <div class="pb-normal">
-                <h4 class="c-darker-gray font-weight-normal"><strong>Cloud Engineer, September 2021 - May 2022</strong>
-                </h4>
-                <p>
-                  <span>
-                    <strong>Activities included:</strong>
-                    <br>
-                   My primary responsibility is to oversee the process of migrating, maintaining, and creating a new process for customers that want to move to the Cloud and become digital natives.
-                    <br />
-            
-                    <br>
-                    On a daily basis, I work closely with the team to assemble the cloud infrastructure, cloud environment, and security services for the customers, guiding them to choose the right services for their needs. This involves collaborating with customers and other stakeholders to understand their needs and design a cloud solution that meets their requirements.
-                    <br />
-            
-                    <br>
-                   I use Terraform to create infrastructure as code for a plethora of projects and help our customers ramp up on building everything to become cloud-native. This includes building and deploying <b>CI/CD pipelines</b>, implementing cloud security solutions, and automating day-to-day DevOps operations as necessary.
-                    <br />
-            
-              </div>
-              <div class="cell medium-9">
-                <div class="pb-normal">
-                  <h3 class="no-margin">Webhelp Group</h3>
-                  <h4 class="c-darker-gray font-weight-normal"><strong>Subject Matter Expert, March 2021 - August
-                      2021</strong></h4>
-                  <p>
-                    <span>
-                      <strong>Activities included:</strong>
-                      <br>
-                      As a Subject Matter Expert (SME) in Google Cloud, my primary responsibility is to provide technical expertise and guidance to the organization on all aspects of Google Cloud services.
-                      <br />
-            
-                      <br>
-                    On a daily basis, I work closely with cross-functional teams, including development, operations, security, and compliance, to help them leverage Google Cloud services effectively and efficiently.
-                      <br />
-            
-                      <h4 class="c-darker-gray font-weight-normal"><strong>Technical Solutions Representative, October
-                          2020 - March 2021</strong></h4>
-                      <p>
-                        <span>
-                          <strong>Activities included:</strong>
-                          <br>
-                          Working with Google Cloud Platform. Specialized in Serverless & Infrastructure products, such as Google App Engine or Cloud SQL.
-                          <br />
-            
-                          <br>
-                         On a typical day, I respond to customer inquiries and resolve issues related to a wide range of Google Cloud services, including Compute Engine, Kubernetes Engine, Storage, and Networking.
-                          <br />
-            
-                          <br>
-            This involves using my technical expertise to diagnose problems, analyze logs, and work collaboratively with customers to identify and implement solutions that meet their specific needs.
-                          <br />
-            
-                </div>
-                <div class="cell medium-9">
-                  <div class="pb-normal">
-                    <h3 class="no-margin">AKKA Technologies</h3>
-                    <h4 class="c-darker-gray font-weight-normal">August 2018 - October 2019</h4>
-                    <p>
-                      <span>
-                        <strong>Activities included:</strong>
-                        <br>
-                        My primary responsibility is to design, develop, and maintain software applications using a wide range of technologies, including React.js, PostgreSQL, Python, Java, and AngularJS. 
-                        <br />
-                      
-                        <br>
-            On a daily basis, I work collaboratively with cross-functional teams, including product managers, designers, and other engineers, to deliver high-quality software solutions that meet the needs of our users and customers.
-                        <br />
-            
-                      </span>
-                    </p>
-                  </div>
-                  <div class="pb-normal">
-                    <h3 class="no-margin">NTT DATA Romania</h3>
-                    <h4 class="c-darker-gray font-weight-normal">July 2017 - September 2017</h4>
-                    <p>
-                      <span>
-                        <strong>Activities included:</strong>
-                        <br /> - Working in a team (4 members), using GitHub for (ticket management, pull requests),
-                        Slack for inter-team
-                        communication
-                        <br /> - Familiarizing with Java Collections, Arrays API, Serialization, BigDecimal, Acces
-                        Specifiers, SOLID
-                        Principles and OOP Principles
-                        <br /> - Generated a CRUD web application using Spring ROO with the MVC Architecture
-                        <br>
-                      </span>
-                    </p>
-                    <br />
-                    <strong>Projects:</strong>
-                    <br />
-                    <i>Chat application:</i>
-                    <br /> - Implementing a chat application and a multiplayer Ping Pong game for a better understanding
-                    of Sockets,
-                    Threads, and Swing
-                    <br />
-                    <br />
-                    <i>Content Synchronization:</i>
-                    <br /> - Made a full web application aimed to provide a synchronized content (files) across multiple
-                    devices using
-                    a microservices architecture based on the JHipster model.
-                  </div>
-                </div>
-              </div>
+
+            <div class="pb-normal">
+              <h3 class="no-margin">Webhelp Group</h3>
+
+              <h4 class="c-darker-gray font-weight-normal"><strong>Subject Matter Expert, March 2021 - August 2021</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>As a Subject Matter Expert (SME) in Google Cloud, my primary responsibility is to provide technical expertise and guidance to the organization on all aspects of Google Cloud services.</li>
+                <li>On a daily basis, I work closely with cross-functional teams, including development, operations, security, and compliance, to help them leverage Google Cloud services effectively and efficiently.</li>
+              </ul>
+
+              <h4 class="c-darker-gray font-weight-normal"><strong>Technical Solutions Representative, October 2020 - March 2021</strong></h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>Working with Google Cloud Platform. Specialized in Serverless &amp; Infrastructure products, such as Google App Engine or Cloud SQL.</li>
+                <li>On a typical day, I respond to customer inquiries and resolve issues related to a wide range of Google Cloud services, including Compute Engine, Kubernetes Engine, Storage, and Networking.</li>
+                <li>This involves using my technical expertise to diagnose problems, analyze logs, and work collaboratively with customers to identify and implement solutions that meet their specific needs.</li>
+              </ul>
+            </div>
+
+            <div class="pb-normal">
+              <h3 class="no-margin">AKKA Technologies</h3>
+              <h4 class="c-darker-gray font-weight-normal">August 2018 - October 2019</h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>My primary responsibility is to design, develop, and maintain software applications using a wide range of technologies, including React.js, PostgreSQL, Python, Java, and AngularJS.</li>
+                <li>On a daily basis, I work collaboratively with cross-functional teams, including product managers, designers, and other engineers, to deliver high-quality software solutions that meet the needs of our users and customers.</li>
+              </ul>
+            </div>
+
+            <div class="pb-normal">
+              <h3 class="no-margin">NTT DATA Romania</h3>
+              <h4 class="c-darker-gray font-weight-normal">July 2017 - September 2017</h4>
+              <p><strong>Activities included:</strong></p>
+              <ul class="experience-list">
+                <li>Working in a team (4 members), using GitHub for ticket management and pull requests, and Slack for inter-team communication.</li>
+                <li>Familiarizing with Java Collections, Arrays API, Serialization, BigDecimal, access specifiers, SOLID principles, and OOP principles.</li>
+                <li>Generated a CRUD web application using Spring ROO with the MVC architecture.</li>
+              </ul>
+              <p><strong>Projects:</strong></p>
+              <p><em>Chat application:</em></p>
+              <ul class="experience-list">
+                <li>Implementing a chat application and a multiplayer Ping Pong game for a better understanding of Sockets, Threads, and Swing.</li>
+              </ul>
+              <p><em>Content Synchronization:</em></p>
+              <ul class="experience-list">
+                <li>Made a full web application aimed to provide synchronized content (files) across multiple devices using a microservices architecture based on the JHipster model.</li>
+              </ul>
+            </div>
+          </div>
       </section>
-      <section class="grid-container">
+      <section class="grid-container" id="education">
         <div class="grid-x pt-big pb-huge pt-normal__small-only pb-normal__small-only">
           <div class="cell medium-3">
             <h2>Education</h2>
@@ -323,18 +334,14 @@ I optimize performance by utilizing AWS-managed services and continuously refine
               <h3 class="no-margin">Universitatea Romano-Americana Bucuresti</h3>
               <h4 class="c-darker-gray font-weight-normal">October 2015 - July 2018</h4>
               <p>
-                <span>Bachelor Degree in Computer Science
-                  <br>
-                </span>
+                Bachelor Degree in Computer Science
               </p>
             </div>
             <div class="pb-normal">
               <h3 class="no-margin">Liceul Teoretic Traian Bucuresti</h3>
               <h4 class="c-darker-gray font-weight-normal">September 2011 - June 2015</h4>
               <p>
-                <span>Mathematics and Informatics
-                  <br>
-                </span>
+                Mathematics and Informatics
               </p>
             </div>
           </div>
@@ -352,6 +359,7 @@ I optimize performance by utilizing AWS-managed services and continuously refine
         </div>
       </div>
     </footer>
+
   </div>
 </body>
 
